@@ -1,12 +1,23 @@
+import { ThemeProvider } from "styled-components";
+import { CoffeeProvider } from "./context/CoffeeContext";
+import { CoffeesData } from "./data/CoffeesData";
+import CoffeeList from "./pages/CoffeeList/CoffeList";
+import { Intro } from "./pages/Intro/Intro";
+import { Menu } from "./pages/Menu/Menu";
+import { GlobalStyle } from "./styles/global";
+import { defaultThemes } from "./styles/theme/defaultThemes";
 
 function App() {
-
-
   return (
-    <>
-      <h1 className="bg-coffe_yellow_dark">COFFE</h1>
-    </>
-  )
+    <ThemeProvider theme={defaultThemes}>
+      <CoffeeProvider initialCoffees={CoffeesData}>
+        <GlobalStyle />
+        <Menu />
+        <Intro />
+        <CoffeeList />
+      </CoffeeProvider>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
