@@ -1,5 +1,5 @@
-import CoffeeCard from "../../components/CoffeeCard/CoffeeCard";
-import { useCoffeeContext } from "../../context/CoffeeContext";
+import CoffeeCard from "../../../components/CoffeeCard/CoffeeCard";
+import { useCoffeeContext } from "../../../context/CoffeeContext";
 import { CoffeeListCard, CoffeListContainer } from "./styles";
 
 export default function CoffeeList() {

@@ -1,4 +1,5 @@
 import { ShoppingCartSimple } from "@phosphor-icons/react";
+import { useCoffeeContext } from "../../context/CoffeeContext";
 import CoffeeCardCount from "../CoffeeCount/CoffeeCardCount";
 import {
   CoffeCardBuyButton,
@@ -17,6 +18,16 @@ interface CoffeeCardProps {
 }
 
 export default function CoffeeCard({ id, description, name, value, image_url }: CoffeeCardProps) {
+  const { coffeeCounts, addCoffeeToCart } = useCoffeeContext();
+
+  const handleBuyClick = () => {
+    if (coffeeCounts[id] > 0) {
+      addCoffeeToCart(id);
+    } else {
+      alert("Selecione uma quantidade maior que 0");
+    }
+  };
+
   return (
     <CoffeeCardContainer>
       <img src={image_url} alt="" />
@@ -30,7 +41,7 @@ export default function CoffeeCard({ id, description, name, value, image_url }: 
           R$ <CoffeeCardPrice> {value}</CoffeeCardPrice>
         </span>
         <CoffeeCardCount coffeeId={id} />
-        <CoffeCardBuyButton>
+        <CoffeCardBuyButton onClick={() => handleBuyClick()}>
           <ShoppingCartSimple size={22} weight="fill" color="#FFFFFF" />
         </CoffeCardBuyButton>
       </CoffeeCardButtons>

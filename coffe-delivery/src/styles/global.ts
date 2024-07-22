@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.coffe_background};
     color: ${(props) => props.theme.coffe_base_title};
     -webkit-font-smoothing: antialiased;
-    padding: 16px 10rem;
   }
 
   body, input, button {
